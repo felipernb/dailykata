@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 func MaxSubarray(a []int) []int {
 	currentSumStart := 0
 	currentSum := 0
@@ -27,9 +23,3 @@ func MaxSubarray(a []int) []int {
 	}
 	return a[maxSumStart : maxSumEnd + 1]
 }
-
-func main() {
-	a := []int {-2, 1, -3, 4, -1, 2, 1, -5, 4}
-	fmt.Println(MaxSubarray(a))
-}
-
