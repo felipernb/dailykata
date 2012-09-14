@@ -7,7 +7,10 @@ def quicksort(a, l = 0, r = a.length)
 end
 
 def partition(a, l, r)
-    pivot = a[l] #pivot is the first element, as simple as it gets
+    # Random pivot
+    p = rand(l..r-1)
+    a[l],a[p] = a[p], a[l]
+    pivot = a[l]
     i = l+1
     for j in i..r-1 do
         if a[j] < pivot
@@ -18,5 +21,5 @@ def partition(a, l, r)
     a[l], a[i-1] = a[i-1], a[l]
     i-1
 end
-a = [5,1,2,4]   
+a = [5,1,2,4,3,0,-1,10]
 puts quicksort(a)
