@@ -7,7 +7,7 @@ import (
 )
 
 func assertEquals(a, b, delta float64, t *testing.T) {
-	if math.Abs(a-b) > delta {
+	if math.Abs(a-b)/b > delta {
 		t.Fail()
 		fmt.Printf("FAIL: %d is not close enough to %d", b, a)
 	}

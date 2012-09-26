@@ -8,16 +8,9 @@ const (
 )
 
 func Sqrt(n float64) float64 {
-	lower := 0.0
-	upper := n
 	x := n/2
-	for math.Abs(x*x - n) > DELTA {
-		if x*x > n {
-			upper = x
-		} else {
-			lower = x
-		}
-		x = (upper - lower)/2 + lower
+	for math.Abs(x*x - n)/n > DELTA {
+		x = (x+n/x)/2
 	}
 
 	// Optimization for perfect squares

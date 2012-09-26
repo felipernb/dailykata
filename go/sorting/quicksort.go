@@ -1,8 +1,4 @@
-package main
-
-import (
-	"fmt"
-)
+package sorting
 
 func Quicksort(a []int) []int {
 	if (len(a) <= 1) {
@@ -27,7 +23,3 @@ func partition(a []int) int {
 	return i-1
 }
 
-func main() {
-	a := []int {5,1,0,2,4,-1}
-	fmt.Println(Quicksort(a))
-}
