@@ -9,14 +9,14 @@ func Quicksort(a []int) []int {
 		return a
 	}
 	p := partition(a)
-    Quicksort(a[0:p])
+	Quicksort(a[0:p])
 	Quicksort(a[p+1:])
 	return a
 }
 
 func partition(a []int) int {
-    p := rand.Intn(len(a)) // Random pivot
-    a[0], a[p] = a[p], a[0]
+	p := rand.Intn(len(a)) // Random pivot
+	a[0], a[p] = a[p], a[0]
 	pivot := a[0]
 	i := 1
 	for j := i; j < len(a); j++ {
