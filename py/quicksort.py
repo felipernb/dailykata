@@ -1,25 +1,23 @@
 import random
 
-def quicksort(a):
-    if len(a) <= 1:
+def quicksort(a, l, r):
+    if l >= r:
         return a
+    p = partition(a, l, r)
+    quicksort(a, l, p)
+    quicksort(a, p+1, r)
+    return a
 
-    p = partition(a)
-    sorted_list = quicksort(a[0:p])
-    sorted_list.append(a[p])
-    sorted_list.extend(quicksort(a[p+1:]))
-    return sorted_list
-
-def partition(a):
-    p = int(random.random() * len(a))
-    a[0], a[p] = a[p], a[0]
-    pivot = a[0]
-    i = 1
-    for j in xrange(i, len(a)):
+def partition(a, l, r):
+    p = int(random.random() * (r-l))+l
+    a[l], a[p] = a[p], a[l]
+    pivot = a[l]
+    i = l+1
+    for j in xrange(i, r):
         if a[j] < pivot:
             a[j], a[i] = a[i], a[j]
             i += 1
-    a[0], a[i-1] = a[i-1], a[0]
+    a[l], a[i-1] = a[i-1], a[l]
     return i-1
 
-print quicksort([5,8,2,-1,10,0,3])
+print quicksort([5,8,2,-1,10,0,3], 0, 7)
