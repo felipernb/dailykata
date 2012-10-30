@@ -41,7 +41,7 @@ func (g *Game) isSpare(frame int) bool {
 }
 
 func (g *Game) strikeBonus(frame int) int {
-	return g.rolls[frame+1] + g.rolls[frame+2]
+	return g.sumOfRolls(frame+1)
 }
 
 func (g *Game) spareBonus(frame int) int {
